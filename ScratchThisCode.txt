@@ -1,33 +1,25 @@
-#include<mach/mach.h>
-struct message {
-mach msg header t header;
-int data;
+#include <iostream>
+#include <algorithm>
+#include <numeric>
+#include <execution> // for the execution policy
+#include "timer.hpp"
+int main()
+{
+int numElems = 1000;
+struct Data {
+double value; // initial value
+double sqrt; // parallel computed square root
 };
-mach port t client;
-mach port t server;
-/* Client Code */
-struct message message;
-// construct the header
-message.header.msgh size = sizeof(message);
-message.header.msgh remote port = server;
-message.header.msgh local port = client;
-// send the message
-mach msg(&message.header, // message header
-MACH SEND MSG, // sending a message
-sizeof(message), // size of message sent
-0, // maximum size of received message - unnecessary
-MACH PORT NULL, // name of receive port - unnecessary
-MACH MSG TIMEOUT NONE, // no time outs
-MACH PORT NULL // no notify port
-);
-/* Server Code */
-struct message message;
-// receive the message
-mach msg(&message.header, // message header
-MACH RCV MSG, // sending a message
-0, // size of message sent
-sizeof(message), // maximum size of received message
-server, // name of receive port
-MACH MSG TIMEOUT NONE, // no time outs
-MACH PORT NULL // no notify port
-);
+// initialize NumElems values without square root:
+std::vector<Data> coll;
+coll.reserve(numElems);
+for (int i=0; i<numElems; ++i) {
+coll.push_back(Data{i * 4.37, 0});
+}
+// parallel computation of square roots:
+for_each(std::execution::par,
+coll.begin(), coll.end(),
+[](auto& val) {
+val.sqrt = std::sqrt(val.value);
+});
+}
