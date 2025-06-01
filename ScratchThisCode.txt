@@ -1,101 +1,105 @@
-/*
- * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
- *
- * The MIT License
- * Copyright © 2014-2022 Ilkka Seppälä
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-package com.iluwatar.abstractdocument;
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.function.Function;
-import java.util.stream.Stream;
-
-/** Abstract implementation of Document interface. */
-public abstract class AbstractDocument implements Document {
-
-  private final Map<String, Object> documentProperties;
-
-  protected AbstractDocument(Map<String, Object> properties) {
-    Objects.requireNonNull(properties, "properties map is required");
-    this.documentProperties = properties;
-  }
-
-  @Override
-  public Void put(String key, Object value) {
-    documentProperties.put(key, value);
-    return null;
-  }
-
-  @Override
-  public Object get(String key) {
-    return documentProperties.get(key);
-  }
-
-  @Override
-  public <T> Stream<T> children(String key, Function<Map<String, Object>, T> childConstructor) {
-    return Stream.ofNullable(get(key))
-        .filter(Objects::nonNull)
-        .map(el -> (List<Map<String, Object>>) el)
-        .findAny()
-        .stream()
-        .flatMap(Collection::stream)
-        .map(childConstructor);
-  }
-
-  @Override
-  public String toString() {
-    return buildStringRepresentation();
-  }
-
-  private String buildStringRepresentation() {
-    var builder = new StringBuilder();
-    builder.append(getClass().getName()).append("[");
-
-    // Explaining variable for document properties map
-    Map<String, Object> documentProperties = this.documentProperties;
-
-    // Explaining variable for the size of document properties map
-    int numProperties = documentProperties.size();
-
-    // Explaining variable for tracking the current property index
-    int currentPropertyIndex = 0;
-
-    // Iterate over document properties map
-    for (Map.Entry<String, Object> entry : documentProperties.entrySet()) {
-      String key = entry.getKey();
-      Object value = entry.getValue();
-
-      // Append key-value pair
-      builder.append("[").append(key).append(" : ").append(value).append("]");
-
-      // Add comma if not last property
-      if (++currentPropertyIndex < numProperties) {
-        builder.append(", ");
-      }
+/** Our old friend die from ex17. */
+void die(const char *message) {
+    if (errno) {
+        perror(message);
+    } else {
+        printf("ERROR: %s\n", message);
     }
 
-    builder.append("]");
-    return builder.toString();
-  }
+    exit(1);
+}
+
+// a typedef creates a fake type, in this
+// case for a function pointer
+typedef int (*compare_cb)(int a, int b);
+
+/**
+* A classic bubble sort function that uses the
+* compare_cb to do the sorting.
+*/
+int *bubble_sort(int *numbers, int count, compare_cb cmp) {
+    int temp = 0;
+    int i = 0;
+    int j = 0;
+    int *target = malloc(count * sizeof(int));
+
+    if (!target)
+        die("Memory error.");
+
+    memcpy(target, numbers, count * sizeof(int));
+
+    for (i = 0; i < count; i++) {
+        for (j = 0; j < count - 1; j++) {
+            if (cmp(target[j], target[j + 1]) > 0) {
+                temp = target[j + 1];
+                target[j + 1] = target[j];
+                target[j] = temp;
+            }
+        }
+    }
+
+    return target;
+}
+
+int sorted_order(int a, int b) {
+    return a - b;
+}
+
+int reverse_order(int a, int b) {
+    return b - a;
+}
+
+int strange_order(int a, int b) {
+    if (a == 0 || b == 0) {
+        return 0;
+    } else {
+        return a % b;
+    }
+}
+
+/**
+* Used to test that we are sorting things correctly
+* by doing the sort and printing it out.
+*/
+void test_sorting(int *numbers, int count, compare_cb cmp) {
+    int i = 0;
+    int *sorted = bubble_sort(numbers, count, cmp);
+
+    if (!sorted)
+        die("Failed to sort as requested.");
+
+    for (i = 0; i < count; i++) {
+        printf("%d ", sorted[i]);
+    }
+    printf("\n");
+
+    free(sorted);
+}
+
+int main(int argc, char *argv[]) {
+    if (argc < 2) die("USAGE: ex18 4 3 1 5 6");
+
+    int count = argc - 1;
+    int i = 0;
+    char **inputs = argv + 1;
+
+    int *numbers = malloc(count * sizeof(int));
+    if (!numbers) die("Memory error.");
+
+    for (i = 0; i < count; i++) {
+        numbers[i] = atoi(inputs[i]);
+    }
+
+    test_sorting(numbers, count, sorted_order);
+    test_sorting(numbers, count, reverse_order);
+    test_sorting(numbers, count, strange_order);
+
+    free(numbers);
+
+    return 0;
 }
