@@ -1,24 +1,25 @@
+package com.god.file;
+
 /**
  * AlgorithmPatternsBook.java
- *
+ * <p>
  * A single-file, offline-ready collection of 31 algorithmic & system patterns in Java.
  * Each pattern contains:
- *   - A short conceptual overview
- *   - Intuition / when to use
- *   - Key points
- *   - Time & space complexity
- *   - A concise, runnable Java example (method or small class)
- *
+ * - A short conceptual overview
+ * - Intuition / when to use
+ * - Key points
+ * - Time & space complexity
+ * - A concise, runnable Java example (method or small class)
+ * <p>
  * Usage:
- *   - Open in your IDE and run main() for quick demos.
- *   - Each pattern's explanation is in the comment block immediately above the code.
- *
+ * - Open in your IDE and run main() for quick demos.
+ * - Each pattern's explanation is in the comment block immediately above the code.
+ * <p>
  * Java version: 11+ (works on Java 8 for most code; some Collection helpers require 9+)
  */
 
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class AlgorithmPatternsBook {
 
@@ -70,7 +71,15 @@ public class AlgorithmPatternsBook {
      *   Time: O(n)
      *   Space: O(1)
      */
-    static class ListNode { int val; ListNode next; ListNode(int v){val=v;} }
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int v) {
+            val = v;
+        }
+    }
+
     static boolean hasCycle(ListNode head) {
         ListNode slow = head, fast = head;
         while (fast != null && fast.next != null) {
@@ -157,7 +166,12 @@ public class AlgorithmPatternsBook {
      *   Time: O(n)
      *   Space: O(1)
      */
-    static void swap(int[] a, int i, int j){ int t=a[i]; a[i]=a[j]; a[j]=t; }
+    static void swap(int[] a, int i, int j) {
+        int t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+
     static void cyclicSort(int[] nums) {
         int i = 0;
         while (i < nums.length) {
@@ -281,7 +295,15 @@ public class AlgorithmPatternsBook {
      *   Time: O(n)
      *   Space: O(w) where w is max width of tree (queue)
      */
-    static class TreeNode { int val; TreeNode left, right; TreeNode(int v){val=v;} }
+    static class TreeNode {
+        int val;
+        TreeNode left, right;
+
+        TreeNode(int v) {
+            val = v;
+        }
+    }
+
     static List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) return res;
@@ -395,10 +417,10 @@ public class AlgorithmPatternsBook {
         if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length) return;
         if (grid[i][j] == '0') return;
         grid[i][j] = '0'; // mark visited (mutate)
-        dfsIsland(grid, i+1, j);
-        dfsIsland(grid, i-1, j);
-        dfsIsland(grid, i, j+1);
-        dfsIsland(grid, i, j-1);
+        dfsIsland(grid, i + 1, j);
+        dfsIsland(grid, i - 1, j);
+        dfsIsland(grid, i, j + 1);
+        dfsIsland(grid, i, j - 1);
     }
 
     // ======================================================================================
@@ -416,11 +438,13 @@ public class AlgorithmPatternsBook {
     static class MedianFinder {
         private final PriorityQueue<Integer> lowers = new PriorityQueue<>(Collections.reverseOrder());
         private final PriorityQueue<Integer> highers = new PriorityQueue<>();
+
         void addNum(int num) {
             lowers.offer(num);
             highers.offer(lowers.poll());
             if (highers.size() > lowers.size()) lowers.offer(highers.poll());
         }
+
         double findMedian() {
             if (lowers.size() == highers.size()) return (lowers.peek() + highers.peek()) / 2.0;
             return lowers.peek();
@@ -640,11 +664,11 @@ public class AlgorithmPatternsBook {
         for (int i = n - 1; i >= 0; i--) {
             dp[i][i] = 1;
             for (int j = i + 1; j < n; j++) {
-                if (s.charAt(i) == s.charAt(j)) dp[i][j] = 2 + (i+1<=j-1 ? dp[i+1][j-1] : 0);
-                else dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1]);
+                if (s.charAt(i) == s.charAt(j)) dp[i][j] = 2 + (i + 1 <= j - 1 ? dp[i + 1][j - 1] : 0);
+                else dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
             }
         }
-        return dp[0][n-1];
+        return dp[0][n - 1];
     }
 
     // ======================================================================================
@@ -665,6 +689,7 @@ public class AlgorithmPatternsBook {
         backtrackPermute(nums, new ArrayList<>(), new boolean[nums.length], res);
         return res;
     }
+
     static void backtrackPermute(int[] nums, List<Integer> temp, boolean[] used, List<List<Integer>> res) {
         if (temp.size() == nums.length) {
             res.add(new ArrayList<>(temp));
@@ -695,14 +720,17 @@ public class AlgorithmPatternsBook {
         Map<Character, TrieNode> children = new HashMap<>();
         boolean end;
     }
+
     static class Trie {
         TrieNode root = new TrieNode();
+
         void insert(String word) {
             TrieNode cur = root;
             for (char c : word.toCharArray())
                 cur = cur.children.computeIfAbsent(c, k -> new TrieNode());
             cur.end = true;
         }
+
         boolean search(String word) {
             TrieNode cur = root;
             for (char c : word.toCharArray()) {
@@ -711,6 +739,7 @@ public class AlgorithmPatternsBook {
             }
             return cur.end;
         }
+
         boolean startsWith(String prefix) {
             TrieNode cur = root;
             for (char c : prefix.toCharArray()) {
@@ -765,21 +794,27 @@ public class AlgorithmPatternsBook {
      */
     static class UnionFind {
         int[] parent, rank;
+
         UnionFind(int n) {
             parent = new int[n];
             rank = new int[n];
             for (int i = 0; i < n; i++) parent[i] = i;
         }
+
         int find(int x) {
             if (parent[x] != x) parent[x] = find(parent[x]);
             return parent[x];
         }
+
         void union(int a, int b) {
             int pa = find(a), pb = find(b);
             if (pa == pb) return;
             if (rank[pa] < rank[pb]) parent[pa] = pb;
             else if (rank[pa] > rank[pb]) parent[pb] = pa;
-            else { parent[pb] = pa; rank[pa]++; }
+            else {
+                parent[pb] = pa;
+                rank[pa]++;
+            }
         }
     }
 
@@ -795,7 +830,10 @@ public class AlgorithmPatternsBook {
      */
     static void orderedSetExample() {
         TreeSet<Integer> ts = new TreeSet<>();
-        ts.add(5); ts.add(1); ts.add(3); ts.add(2);
+        ts.add(5);
+        ts.add(1);
+        ts.add(3);
+        ts.add(2);
         System.out.println("Min: " + ts.first() + " Max: " + ts.last());
         System.out.println("Ceiling(2) = " + ts.ceiling(2));
     }
@@ -814,7 +852,7 @@ public class AlgorithmPatternsBook {
      */
     static int[] prefixSum(int[] nums) {
         int[] pref = new int[nums.length + 1];
-        for (int i = 0; i < nums.length; i++) pref[i+1] = pref[i] + nums[i];
+        for (int i = 0; i < nums.length; i++) pref[i + 1] = pref[i] + nums[i];
         return pref;
     }
 
@@ -850,19 +888,19 @@ public class AlgorithmPatternsBook {
     // ======================================================================================
     public static void main(String[] args) throws Exception {
         System.out.println("=== Two Pointers (twoSumSorted) ===");
-        System.out.println(Arrays.toString(twoSumSorted(new int[]{1,2,3,4,6}, 6)));
+        System.out.println(Arrays.toString(twoSumSorted(new int[]{1, 2, 3, 4, 6}, 6)));
 
         System.out.println("\n=== Sliding Window (lengthOfLongestSubstring) ===");
         System.out.println(lengthOfLongestSubstring("abcabcbb"));
 
         System.out.println("\n=== Bitwise XOR (singleNumber) ===");
-        System.out.println(singleNumber(new int[]{2,2,1}));
+        System.out.println(singleNumber(new int[]{2, 2, 1}));
 
         System.out.println("\n=== K-way merge demo ===");
         List<int[]> arrays = new ArrayList<>();
-        arrays.add(new int[]{1,4,7});
-        arrays.add(new int[]{2,5,6});
-        arrays.add(new int[]{3,8});
+        arrays.add(new int[]{1, 4, 7});
+        arrays.add(new int[]{2, 5, 6});
+        arrays.add(new int[]{3, 8});
         System.out.println(mergeKSortedArrays(arrays));
 
         System.out.println("\n=== Trie demo ===");
