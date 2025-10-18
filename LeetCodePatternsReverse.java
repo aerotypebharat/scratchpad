@@ -1,4 +1,4 @@
-/**
+package com.god.file; /**
  * LeetCode Patterns Collection - 31 Patterns, 93 Problems with Java Solutions
  * REVERSE ORDER: Pattern 31 to Pattern 1 for practicing from the end first
  * GitHub: https://github.com/yourusername/leetcode-patterns
@@ -621,7 +621,7 @@ public class LeetCodePatternsReverse {
     // PATTERN 26: TRIE
     // Use Case: Prefix searching, dictionary problems
     // =========================================================================
-    
+
     /**
      * 26.1: Implement Trie (Prefix Tree)
      * Time: O(L) for insert/search/startsWith, Space: O(N*L)
@@ -630,19 +630,19 @@ public class LeetCodePatternsReverse {
         class TrieNode {
             TrieNode[] children;
             boolean isEnd;
-            
+
             public TrieNode() {
                 children = new TrieNode[26];
                 isEnd = false;
             }
         }
-        
+
         private TrieNode root;
 
         public Trie() {
             root = new TrieNode();
         }
-        
+
         public void insert(String word) {
             TrieNode node = root;
             for (char c : word.toCharArray()) {
@@ -654,16 +654,16 @@ public class LeetCodePatternsReverse {
             }
             node.isEnd = true;
         }
-        
+
         public boolean search(String word) {
             TrieNode node = searchPrefix(word);
             return node != null && node.isEnd;
         }
-        
+
         public boolean startsWith(String prefix) {
             return searchPrefix(prefix) != null;
         }
-        
+
         private TrieNode searchPrefix(String prefix) {
             TrieNode node = root;
             for (char c : prefix.toCharArray()) {
@@ -676,7 +676,7 @@ public class LeetCodePatternsReverse {
             return node;
         }
     }
-    
+
     /**
      * 26.2: Word Search II
      * Find all words from dictionary in board using Trie
@@ -685,15 +685,15 @@ public class LeetCodePatternsReverse {
     public List<String> findWords(char[][] board, String[] words) {
         List<String> result = new ArrayList<>();
         Trie trie = new Trie();
-        
+
         // Build trie with all words
         for (String word : words) {
             trie.insert(word);
         }
-        
+
         int rows = board.length, cols = board[0].length;
         boolean[][] visited = new boolean[rows][cols];
-        
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 dfsWordSearch(board, i, j, trie.root, new StringBuilder(), result, visited);
@@ -701,37 +701,37 @@ public class LeetCodePatternsReverse {
         }
         return result;
     }
-    
-    private void dfsWordSearch(char[][] board, int i, int j, TrieNode node, StringBuilder current, 
-                              List<String> result, boolean[][] visited) {
+
+    private void dfsWordSearch(char[][] board, int i, int j, Trie.TrieNode node, StringBuilder current,
+                               List<String> result, boolean[][] visited) {
         if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || visited[i][j]) {
             return;
         }
-        
+
         char c = board[i][j];
         int index = c - 'a';
         if (node.children[index] == null) return;
-        
+
         node = node.children[index];
         current.append(c);
         visited[i][j] = true;
-        
+
         if (node.isEnd) {
             result.add(current.toString());
             node.isEnd = false; // Avoid duplicates
         }
-        
+
         // Explore neighbors
         dfsWordSearch(board, i + 1, j, node, current, result, visited);
         dfsWordSearch(board, i - 1, j, node, current, result, visited);
         dfsWordSearch(board, i, j + 1, node, current, result, visited);
         dfsWordSearch(board, i, j - 1, node, current, result, visited);
-        
+
         // Backtrack
         current.deleteCharAt(current.length() - 1);
         visited[i][j] = false;
     }
-    
+
     /**
      * 26.3: Replace Words
      * Replace words with their shortest root
@@ -739,35 +739,35 @@ public class LeetCodePatternsReverse {
      */
     public String replaceWords(List<String> dictionary, String sentence) {
         Trie trie = new Trie();
-        
+
         // Build trie with dictionary
         for (String root : dictionary) {
             trie.insert(root);
         }
-        
+
         String[] words = sentence.split(" ");
         StringBuilder result = new StringBuilder();
-        
+
         for (String word : words) {
             if (result.length() > 0) result.append(" ");
             String root = findShortestRoot(trie, word);
             result.append(root != null ? root : word);
         }
-        
+
         return result.toString();
     }
-    
+
     private String findShortestRoot(Trie trie, String word) {
-        TrieNode node = trie.root;
+        Trie.TrieNode node = trie.root;
         StringBuilder prefix = new StringBuilder();
-        
+
         for (char c : word.toCharArray()) {
             int index = c - 'a';
             if (node.children[index] == null) return null;
-            
+
             node = node.children[index];
             prefix.append(c);
-            
+
             if (node.isEnd) return prefix.toString();
         }
         return null;
