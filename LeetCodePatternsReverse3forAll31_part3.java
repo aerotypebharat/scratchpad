@@ -1,8 +1,4 @@
-package com.god.file; /**
- * LeetCode Patterns Collection - 31 Patterns, 93 Problems with Java Solutions
- * REVERSE ORDER: Pattern 31 to Pattern 1 for practicing from the end first
- * GitHub: https://github.com/yourusername/leetcode-patterns
- */
+package com.god.file;
 
 import java.util.*;
 
@@ -13,15 +9,15 @@ public class LeetCodePatternsReverse_part3 {
         System.out.println("93 Problems - Practice from the end first!");
     }
 
-    // =========================================================================
+    
     // PATTERN 10: LEVEL ORDER TRAVERSAL
     // Use Case: Tree traversal level by level
-    // =========================================================================
     
-    /**
-     * 10.1: Binary Tree Level Order Traversal
-     * Time: O(n), Space: O(n)
-     */
+    
+   
+     // 10.1: Binary Tree Level Order Traversal
+     // Time: O(n), Space: O(n)
+     
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
@@ -45,10 +41,10 @@ public class LeetCodePatternsReverse_part3 {
         return result;
     }
     
-    /**
-     * 10.2: Binary Tree Zigzag Level Order Traversal
-     * Time: O(n), Space: O(n)
-     */
+   
+     // 10.2: Binary Tree Zigzag Level Order Traversal
+     // Time: O(n), Space: O(n)
+     
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
@@ -79,10 +75,10 @@ public class LeetCodePatternsReverse_part3 {
         return result;
     }
     
-    /**
-     * 10.3: Average of Levels in Binary Tree
-     * Time: O(n), Space: O(n)
-     */
+   
+     // 10.3: Average of Levels in Binary Tree
+     // Time: O(n), Space: O(n)
+     
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> result = new ArrayList<>();
         if (root == null) return result;
@@ -106,15 +102,15 @@ public class LeetCodePatternsReverse_part3 {
         return result;
     }
 
-    // =========================================================================
+    
     // PATTERN 9: HASH MAPS
     // Use Case: Frequency counting, lookups, caching
-    // =========================================================================
     
-    /**
-     * 9.1: Two Sum
-     * Time: O(n), Space: O(n)
-     */
+    
+   
+     // 9.1: Two Sum
+     // Time: O(n), Space: O(n)
+     
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> numMap = new HashMap<>();
         
@@ -128,10 +124,10 @@ public class LeetCodePatternsReverse_part3 {
         return new int[]{-1, -1};
     }
     
-    /**
-     * 9.2: Group Anagrams
-     * Time: O(n*k log k), Space: O(n*k)
-     */
+   
+     // 9.2: Group Anagrams
+     // Time: O(n//k log k), Space: O(n//k)
+     
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
         
@@ -149,10 +145,10 @@ public class LeetCodePatternsReverse_part3 {
         return new ArrayList<>(map.values());
     }
     
-    /**
-     * 9.3: Longest Consecutive Sequence
-     * Time: O(n), Space: O(n)
-     */
+   
+     // 9.3: Longest Consecutive Sequence
+     // Time: O(n), Space: O(n)
+     
     public int longestConsecutive(int[] nums) {
         Set<Integer> numSet = new HashSet<>();
         for (int num : nums) {
@@ -178,15 +174,15 @@ public class LeetCodePatternsReverse_part3 {
         return longest;
     }
 
-    // =========================================================================
+    
     // PATTERN 8: MONOTONIC STACK
     // Use Case: Next greater/smaller element, stock span, histogram problems
-    // =========================================================================
     
-    /**
-     * 8.1: Next Greater Element I
-     * Time: O(n), Space: O(n)
-     */
+    
+   
+     // 8.1: Next Greater Element I
+     // Time: O(n), Space: O(n)
+     
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         Map<Integer, Integer> nextGreater = new HashMap<>();
         Stack<Integer> stack = new Stack<>();
@@ -205,10 +201,10 @@ public class LeetCodePatternsReverse_part3 {
         return result;
     }
     
-    /**
-     * 8.2: Trapping Rain Water
-     * Time: O(n), Space: O(n)
-     */
+   
+     // 8.2: Trapping Rain Water
+     // Time: O(n), Space: O(n)
+     
     public int trapRainWater(int[] height) {
         Stack<Integer> stack = new Stack<>();
         int totalWater = 0;
@@ -227,10 +223,10 @@ public class LeetCodePatternsReverse_part3 {
         return totalWater;
     }
     
-    /**
-     * 8.3: Largest Rectangle in Histogram
-     * Time: O(n), Space: O(n)
-     */
+   
+     // 8.3: Largest Rectangle in Histogram
+     // Time: O(n), Space: O(n)
+     
     public int largestRectangleArea(int[] heights) {
         Stack<Integer> stack = new Stack<>();
         int maxArea = 0;
@@ -249,15 +245,15 @@ public class LeetCodePatternsReverse_part3 {
         return maxArea;
     }
 
-    // =========================================================================
+    
     // PATTERN 7: STACK
     // Use Case: LIFO operations, parsing, backtracking
-    // =========================================================================
     
-    /**
-     * 7.1: Valid Parentheses
-     * Time: O(n), Space: O(n)
-     */
+    
+   
+     // 7.1: Valid Parentheses
+     // Time: O(n), Space: O(n)
+     
     public boolean isValidParentheses(String s) {
         Stack<Character> stack = new Stack<>();
         
@@ -277,10 +273,10 @@ public class LeetCodePatternsReverse_part3 {
         return stack.isEmpty();
     }
     
-    /**
-     * 7.2: Daily Temperatures
-     * Time: O(n), Space: O(n)
-     */
+   
+     // 7.2: Daily Temperatures
+     // Time: O(n), Space: O(n)
+     
     public int[] dailyTemperatures(int[] temperatures) {
         int n = temperatures.length;
         int[] result = new int[n];
@@ -296,10 +292,10 @@ public class LeetCodePatternsReverse_part3 {
         return result;
     }
     
-    /**
-     * 7.3: Evaluate Reverse Polish Notation
-     * Time: O(n), Space: O(n)
-     */
+   
+     // 7.3: Evaluate Reverse Polish Notation
+     // Time: O(n), Space: O(n)
+     
     public int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
         
@@ -310,7 +306,7 @@ public class LeetCodePatternsReverse_part3 {
                 int b = stack.pop();
                 int a = stack.pop();
                 stack.push(a - b);
-            } else if (token.equals("*")) {
+            } else if (token.equals("//")) {
                 stack.push(stack.pop() * stack.pop());
             } else if (token.equals("/")) {
                 int b = stack.pop();
@@ -323,15 +319,15 @@ public class LeetCodePatternsReverse_part3 {
         return stack.pop();
     }
 
-    // =========================================================================
+    
     // PATTERN 6: IN-PLACE REVERSAL OF LINKEDLIST
     // Use Case: Reverse linked lists or portions of them
-    // =========================================================================
     
-    /**
-     * 6.1: Reverse Linked List
-     * Time: O(n), Space: O(1)
-     */
+    
+   
+     // 6.1: Reverse Linked List
+     // Time: O(n), Space: O(1)
+     
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode current = head;
@@ -345,10 +341,10 @@ public class LeetCodePatternsReverse_part3 {
         return prev;
     }
     
-    /**
-     * 6.2: Reverse Linked List II
-     * Time: O(n), Space: O(1)
-     */
+   
+     // 6.2: Reverse Linked List II
+     // Time: O(n), Space: O(1)
+     
     public ListNode reverseBetween(ListNode head, int left, int right) {
         if (head == null || left == right) return head;
         
@@ -375,10 +371,10 @@ public class LeetCodePatternsReverse_part3 {
         return dummy.next;
     }
     
-    /**
-     * 6.3: Reverse Nodes in k-Group
-     * Time: O(n), Space: O(1)
-     */
+   
+     // 6.3: Reverse Nodes in k-Group
+     // Time: O(n), Space: O(1)
+     
     public ListNode reverseKGroup(ListNode head, int k) {
         if (head == null || k == 1) return head;
         
@@ -408,15 +404,15 @@ public class LeetCodePatternsReverse_part3 {
         return dummy.next;
     }
 
-    // =========================================================================
+    
     // PATTERN 5: CYCLIC SORT
     // Use Case: Arrays with numbers in range [1, n], missing/duplicate numbers
-    // =========================================================================
     
-    /**
-     * 5.1: Find All Missing Numbers
-     * Time: O(n), Space: O(1)
-     */
+    
+   
+     // 5.1: Find All Missing Numbers
+     // Time: O(n), Space: O(1)
+     
     public List<Integer> findDisappearedNumbers(int[] nums) {
         int i = 0;
         while (i < nums.length) {
@@ -437,10 +433,10 @@ public class LeetCodePatternsReverse_part3 {
         return missing;
     }
     
-    /**
-     * 5.2: Find Duplicate Number using Cyclic Sort
-     * Time: O(n), Space: O(1)
-     */
+   
+     // 5.2: Find Duplicate Number using Cyclic Sort
+     // Time: O(n), Space: O(1)
+     
     public int findDuplicateCyclic(int[] nums) {
         int i = 0;
         while (i < nums.length) {
@@ -458,10 +454,10 @@ public class LeetCodePatternsReverse_part3 {
         return -1;
     }
     
-    /**
-     * 5.3: First Missing Positive
-     * Time: O(n), Space: O(1)
-     */
+   
+     // 5.3: First Missing Positive
+     // Time: O(n), Space: O(1)
+     
     public int firstMissingPositive(int[] nums) {
         int n = nums.length;
         int i = 0;
@@ -488,15 +484,15 @@ public class LeetCodePatternsReverse_part3 {
         nums[j] = temp;
     }
 
-    // =========================================================================
+    
     // PATTERN 4: MERGE INTERVALS
     // Use Case: Overlapping intervals, scheduling problems
-    // =========================================================================
     
-    /**
-     * 4.1: Merge Intervals
-     * Time: O(n log n), Space: O(n)
-     */
+    
+   
+     // 4.1: Merge Intervals
+     // Time: O(n log n), Space: O(n)
+     
     public int[][] mergeIntervals(int[][] intervals) {
         if (intervals.length <= 1) return intervals;
         
@@ -521,10 +517,10 @@ public class LeetCodePatternsReverse_part3 {
         return merged.toArray(new int[merged.size()][]);
     }
     
-    /**
-     * 4.2: Insert Interval
-     * Time: O(n), Space: O(n)
-     */
+   
+     // 4.2: Insert Interval
+     // Time: O(n), Space: O(n)
+     
     public int[][] insertInterval(int[][] intervals, int[] newInterval) {
         List<int[]> result = new ArrayList<>();
         int i = 0;
@@ -551,10 +547,10 @@ public class LeetCodePatternsReverse_part3 {
         return result.toArray(new int[result.size()][]);
     }
     
-    /**
-     * 4.3: Meeting Rooms II
-     * Time: O(n log n), Space: O(n)
-     */
+   
+     // 4.3: Meeting Rooms II
+     // Time: O(n log n), Space: O(n)
+     
     public int minMeetingRooms(int[][] intervals) {
         if (intervals.length == 0) return 0;
         
@@ -583,15 +579,15 @@ public class LeetCodePatternsReverse_part3 {
         return rooms;
     }
 
-    // =========================================================================
+    
     // PATTERN 3: SLIDING WINDOW
     // Use Case: Subarrays/substrings with constraints, fixed/variable window
-    // =========================================================================
     
-    /**
-     * 3.1: Maximum Average Subarray I
-     * Time: O(n), Space: O(1)
-     */
+    
+   
+     // 3.1: Maximum Average Subarray I
+     // Time: O(n), Space: O(1)
+     
     public double findMaxAverage(int[] nums, int k) {
         double windowSum = 0;
         
@@ -611,10 +607,10 @@ public class LeetCodePatternsReverse_part3 {
         return maxSum / k;
     }
     
-    /**
-     * 3.2: Longest Substring Without Repeating Characters
-     * Time: O(n), Space: O(min(m,n))
-     */
+   
+     // 3.2: Longest Substring Without Repeating Characters
+     // Time: O(n), Space: O(min(m,n))
+     
     public int lengthOfLongestSubstring(String s) {
         Map<Character, Integer> charIndex = new HashMap<>();
         int left = 0, maxLength = 0;
@@ -633,10 +629,10 @@ public class LeetCodePatternsReverse_part3 {
         return maxLength;
     }
     
-    /**
-     * 3.3: Permutation in String
-     * Time: O(l1 + l2), Space: O(1)
-     */
+   
+     // 3.3: Permutation in String
+     // Time: O(l1 + l2), Space: O(1)
+     
     public boolean checkInclusion(String s1, String s2) {
         if (s1.length() > s2.length()) return false;
         
@@ -665,15 +661,15 @@ public class LeetCodePatternsReverse_part3 {
         return false;
     }
 
-    // =========================================================================
+    
     // PATTERN 2: FAST & SLOW POINTERS
     // Use Case: Cycle detection, middle element, duplicate finding
-    // =========================================================================
     
-    /**
-     * 2.1: Linked List Cycle Detection
-     * Time: O(n), Space: O(1)
-     */
+    
+   
+     // 2.1: Linked List Cycle Detection
+     // Time: O(n), Space: O(1)
+     
     public boolean hasCycle(ListNode head) {
         if (head == null) return false;
         
@@ -688,10 +684,10 @@ public class LeetCodePatternsReverse_part3 {
         return false;
     }
     
-    /**
-     * 2.2: Find Duplicate Number (Floyd's Tortoise and Hare)
-     * Time: O(n), Space: O(1)
-     */
+   
+     // 2.2: Find Duplicate Number (Floyd's Tortoise and Hare)
+     // Time: O(n), Space: O(1)
+     
     public int findDuplicate(int[] nums) {
         int slow = nums[0];
         int fast = nums[0];
@@ -711,10 +707,10 @@ public class LeetCodePatternsReverse_part3 {
         return slow;
     }
     
-    /**
-     * 2.3: Middle of Linked List
-     * Time: O(n), Space: O(1)
-     */
+   
+     // 2.3: Middle of Linked List
+     // Time: O(n), Space: O(1)
+     
     public ListNode middleNode(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
@@ -726,15 +722,15 @@ public class LeetCodePatternsReverse_part3 {
         return slow;
     }
 
-    // =========================================================================
+    
     // PATTERN 1: TWO POINTERS
     // Use Case: Sorted arrays/lists, pair searching, in-place operations
-    // =========================================================================
     
-    /**
-     * 1.1: Two Sum II - Input Array Is Sorted
-     * Time: O(n), Space: O(1)
-     */
+    
+   
+     // 1.1: Two Sum II - Input Array Is Sorted
+     // Time: O(n), Space: O(1)
+     
     public int[] twoSumSorted(int[] numbers, int target) {
         int left = 0, right = numbers.length - 1;
         while (left < right) {
@@ -750,10 +746,10 @@ public class LeetCodePatternsReverse_part3 {
         return new int[]{-1, -1};
     }
     
-    /**
-     * 1.2: Container With Most Water
-     * Time: O(n), Space: O(1)
-     */
+   
+     // 1.2: Container With Most Water
+     // Time: O(n), Space: O(1)
+     
     public int maxArea(int[] height) {
         int left = 0, right = height.length - 1;
         int maxArea = 0;
@@ -772,10 +768,10 @@ public class LeetCodePatternsReverse_part3 {
         return maxArea;
     }
     
-    /**
-     * 1.3: Remove Duplicates from Sorted Array
-     * Time: O(n), Space: O(1)
-     */
+   
+     // 1.3: Remove Duplicates from Sorted Array
+     // Time: O(n), Space: O(1)
+     
     public int removeDuplicates(int[] nums) {
         if (nums.length == 0) return 0;
         
@@ -789,9 +785,9 @@ public class LeetCodePatternsReverse_part3 {
         return uniquePtr + 1;
     }
 
-    // =========================================================================
+    
     // SUPPORTING DATA STRUCTURES
-    // =========================================================================
+    
 
     // ListNode definition for linked list problems
     class ListNode {
@@ -818,13 +814,13 @@ public class LeetCodePatternsReverse_part3 {
 
 }
 
-/**
- * REVERSE ORDER SUMMARY:
- * Patterns are listed from 31 (Multi-thread) to 1 (Two Pointers)
- * This allows practicing from the end patterns first
- *
- * Total: 31 Patterns, 93 Problems with complete Java solutions
- * Each pattern includes time/space complexity analysis
- *
- * Perfect for systematic interview preparation starting from advanced topics!
- */
+/////
+ // REVERSE ORDER SUMMARY:
+ // Patterns are listed from 31 (Multi-thread) to 1 (Two Pointers)
+ // This allows practicing from the end patterns first
+ //
+ // Total: 31 Patterns, 93 Problems with complete Java solutions
+ // Each pattern includes time/space complexity analysis
+ //
+ // Perfect for systematic interview preparation starting from advanced topics!
+ 
