@@ -1,8 +1,8 @@
-package com.god.file; /**
- * LeetCode Patterns Collection - 31 Patterns, 93 Problems with Java Solutions
- * REVERSE ORDER: Pattern 31 to Pattern 1 for practicing from the end first
- * GitHub: https://github.com/yourusername/leetcode-patterns
- */
+package com.god.file;
+// LeetCode Patterns Collection - 31 Patterns, 93 Problems with Java Solutions
+// REVERSE ORDER: Pattern 31 to Pattern 1 for practicing from the end first
+// GitHub: https://github.com/yourusername/leetcode-patterns
+
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -14,14 +14,13 @@ public class LeetCodePatternsReverse_part1 {
         System.out.println("93 Problems - Practice from the end first!");
     }
 
-    // =========================================================================
+
     // PATTERN 31: MULTI-THREAD
     // Use Case: Concurrency, synchronization
-    // =========================================================================
+    
 
-    /**
-     * 31.1: Print in Order
-     */
+    // 31.1: Print in Order
+
     class Foo {
         private Semaphore firstDone = new Semaphore(0);
         private Semaphore secondDone = new Semaphore(0);
@@ -46,9 +45,9 @@ public class LeetCodePatternsReverse_part1 {
         }
     }
 
-    /**
-     * 31.2: Print FooBar Alternately
-     */
+
+    // 31.2: Print FooBar Alternately
+
     class FooBar {
         private int n;
         private Semaphore fooSem = new Semaphore(1);
@@ -75,9 +74,9 @@ public class LeetCodePatternsReverse_part1 {
         }
     }
 
-    /**
-     * 31.3: Dining Philosophers
-     */
+
+    // 31.3: Dining Philosophers
+
     class DiningPhilosophers {
         private Semaphore[] forks = new Semaphore[5];
         private Semaphore dining = new Semaphore(4); // Allow only 4 philosophers to eat
@@ -118,16 +117,15 @@ public class LeetCodePatternsReverse_part1 {
         }
     }
 
-    // =========================================================================
+
     // PATTERN 30: PREFIX SUM
     // Use Case: Range sum queries, subarray problems
-    // =========================================================================
 
-    /**
-     * 30.1: Subarray Sum Equals K
-     * Count number of subarrays with sum exactly k
-     * Time: O(n), Space: O(n)
-     */
+
+    // 30.1: Subarray Sum Equals K
+    // Count number of subarrays with sum exactly k
+    // Time: O(n), Space: O(n)
+
     public int subarraySum(int[] nums, int k) {
         Map<Integer, Integer> prefixSumCount = new HashMap<>();
         prefixSumCount.put(0, 1); // Base case: empty subarray has sum 0
@@ -147,11 +145,11 @@ public class LeetCodePatternsReverse_part1 {
         return count;
     }
 
-    /**
-     * 30.2: Continuous Subarray Sum
-     * Check if there's subarray with sum multiple of k (size >= 2)
-     * Time: O(n), Space: O(n)
-     */
+
+    // 30.2: Continuous Subarray Sum
+    // Check if there's subarray with sum multiple of k (size >= 2)
+    // Time: O(n), Space: O(n)
+
     public boolean checkSubarraySum(int[] nums, int k) {
         Map<Integer, Integer> remainderIndex = new HashMap<>();
         remainderIndex.put(0, -1); // Handle case where subarray starts from index 0
@@ -174,10 +172,10 @@ public class LeetCodePatternsReverse_part1 {
         return false;
     }
 
-    /**
-     * 30.3: Range Sum Query 2D - Immutable
-     * Query sum of submatrix in O(1) time after O(mn) preprocessing
-     */
+
+    // 30.3: Range Sum Query 2D - Immutable
+    // Query sum of submatrix in O(1) time after O(mn) preprocessing
+
     class NumMatrix {
         private int[][] prefixSum;
 
@@ -205,16 +203,15 @@ public class LeetCodePatternsReverse_part1 {
         }
     }
 
-    // =========================================================================
+
     // PATTERN 29: ORDERED SET
     // Use Case: Range queries, sorted data operations
-    // =========================================================================
 
-    /**
-     * 29.1: Contains Duplicate III
-     * Check if there are nearby indices with nearby values
-     * Time: O(n log k), Space: O(k)
-     */
+
+    // 29.1: Contains Duplicate III
+    // Check if there are nearby indices with nearby values
+    // Time: O(n log k), Space: O(k)
+
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
         TreeSet<Long> set = new TreeSet<>();
 
@@ -236,11 +233,11 @@ public class LeetCodePatternsReverse_part1 {
         return false;
     }
 
-    /**
-     * 29.2: Count of Smaller Numbers After Self
-     * Count smaller elements to the right using Fenwick Tree
-     * Time: O(n log n), Space: O(n)
-     */
+
+    // 29.2: Count of Smaller Numbers After Self
+    // Count smaller elements to the right using Fenwick Tree
+    // Time: O(n log n), Space: O(n)
+
     public List<Integer> countSmaller(int[] nums) {
         int n = nums.length;
         List<Integer> result = new ArrayList<>();
@@ -285,11 +282,11 @@ public class LeetCodePatternsReverse_part1 {
         return sum;
     }
 
-    /**
-     * 29.3: Data Stream as Disjoint Intervals
-     * Maintain disjoint intervals from data stream
-     * Time: O(log n) per operation, Space: O(n)
-     */
+
+    // 29.3: Data Stream as Disjoint Intervals
+    // Maintain disjoint intervals from data stream
+    // Time: O(log n) per operation, Space: O(n)
+
     class SummaryRanges {
         private TreeSet<int[]> intervals;
         private Set<Integer> values;
@@ -327,16 +324,15 @@ public class LeetCodePatternsReverse_part1 {
         }
     }
 
-    // =========================================================================
+
     // PATTERN 28: UNION FIND
     // Use Case: Dynamic connectivity, cycle detection
-    // =========================================================================
 
-    /**
-     * 28.1: Number of Provinces
-     * Find connected components in undirected graph
-     * Time: O(n^2 α(n)), Space: O(n)
-     */
+
+    // 28.1: Number of Provinces
+    // Find connected components in undirected graph
+    // Time: O(n^2 α(n)), Space: O(n)
+
     public int findCircleNum(int[][] isConnected) {
         int n = isConnected.length;
         UnionFind uf = new UnionFind(n);
@@ -351,11 +347,11 @@ public class LeetCodePatternsReverse_part1 {
         return uf.count;
     }
 
-    /**
-     * 28.2: Redundant Connection
-     * Find edge that creates cycle in undirected graph
-     * Time: O(n α(n)), Space: O(n)
-     */
+
+    // 28.2: Redundant Connection
+    // Find edge that creates cycle in undirected graph
+    // Time: O(n α(n)), Space: O(n)
+
     public int[] findRedundantConnection(int[][] edges) {
         int n = edges.length;
         UnionFind uf = new UnionFind(n + 1);
@@ -368,11 +364,11 @@ public class LeetCodePatternsReverse_part1 {
         return new int[0];
     }
 
-    /**
-     * 28.3: Number of Islands II
-     * Count islands after each addLand operation
-     * Time: O(k α(mn)), Space: O(mn)
-     */
+
+    // 28.3: Number of Islands II
+    // Count islands after each addLand operation
+    // Time: O(k α(mn)), Space: O(mn)
+
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
         List<Integer> result = new ArrayList<>();
         UnionFind uf = new UnionFind(m * n);
@@ -449,16 +445,15 @@ public class LeetCodePatternsReverse_part1 {
         }
     }
 
-    // =========================================================================
+
     // PATTERN 27: TOPOLOGICAL SORT (GRAPH)
     // Use Case: Dependency resolution, course scheduling
-    // =========================================================================
 
-    /**
-     * 27.1: Course Schedule II
-     * Find valid course order using Kahn's algorithm
-     * Time: O(V + E), Space: O(V + E)
-     */
+
+    // 27.1: Course Schedule II
+    // Find valid course order using Kahn's algorithm
+    // Time: O(V + E), Space: O(V + E)
+
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         // Build adjacency list
         List<List<Integer>> graph = new ArrayList<>();
@@ -498,11 +493,11 @@ public class LeetCodePatternsReverse_part1 {
         return index == numCourses ? result : new int[0];
     }
 
-    /**
-     * 27.2: Alien Dictionary
-     * Reconstruct character order from alien dictionary
-     * Time: O(C) where C is total characters, Space: O(1)
-     */
+
+    // 27.2: Alien Dictionary
+    // Reconstruct character order from alien dictionary
+    // Time: O(C) where C is total characters, Space: O(1)
+
     public String alienOrder(String[] words) {
         // Build graph
         Map<Character, Set<Character>> graph = new HashMap<>();
@@ -562,11 +557,11 @@ public class LeetCodePatternsReverse_part1 {
         return result.length() == indegree.size() ? result.toString() : "";
     }
 
-    /**
-     * 27.3: Sequence Reconstruction
-     * Check if sequence can be uniquely reconstructed
-     * Time: O(n + s), Space: O(n)
-     */
+
+    // 27.3: Sequence Reconstruction
+    // Check if sequence can be uniquely reconstructed
+    // Time: O(n + s), Space: O(n)
+
     public boolean sequenceReconstruction(int[] nums, List<List<Integer>> sequences) {
         Map<Integer, Set<Integer>> graph = new HashMap<>();
         Map<Integer, Integer> indegree = new HashMap<>();
@@ -618,15 +613,14 @@ public class LeetCodePatternsReverse_part1 {
         return true;
     }
 
-    // =========================================================================
+
     // PATTERN 26: TRIE
     // Use Case: Prefix searching, dictionary problems
-    // =========================================================================
 
-    /**
-     * 26.1: Implement Trie (Prefix Tree)
-     * Time: O(L) for insert/search/startsWith, Space: O(N*L)
-     */
+
+    // 26.1: Implement Trie (Prefix Tree)
+    // Time: O(L) for insert/search/startsWith, Space: O(N//L)
+
     class Trie {
         class TrieNode {
             TrieNode[] children;
@@ -678,11 +672,11 @@ public class LeetCodePatternsReverse_part1 {
         }
     }
 
-    /**
-     * 26.2: Word Search II
-     * Find all words from dictionary in board using Trie
-     * Time: O(m*n*4^L), Space: O(k*L) where k is number of words
-     */
+
+    // 26.2: Word Search II
+    // Find all words from dictionary in board using Trie
+    // Time: O(m//n//4^L), Space: O(k//L) where k is number of words
+
     public List<String> findWords(char[][] board, String[] words) {
         List<String> result = new ArrayList<>();
         Trie trie = new Trie();
@@ -733,11 +727,11 @@ public class LeetCodePatternsReverse_part1 {
         visited[i][j] = false;
     }
 
-    /**
-     * 26.3: Replace Words
-     * Replace words with their shortest root
-     * Time: O(n*L), Space: O(n*L)
-     */
+
+    // 26.3: Replace Words
+    // Replace words with their shortest root
+    // Time: O(n//L), Space: O(n//L)
+
     public String replaceWords(List<String> dictionary, String sentence) {
         Trie trie = new Trie();
 
@@ -774,16 +768,15 @@ public class LeetCodePatternsReverse_part1 {
         return null;
     }
 
-    // =========================================================================
+
     // PATTERN 25: BACKTRACKING
     // Use Case: Permutations, combinations, constraint satisfaction
-    // =========================================================================
 
-    /**
-     * 25.1: Permutations
-     * Generate all permutations of distinct integers
-     * Time: O(n*n!), Space: O(n)
-     */
+
+    // 25.1: Permutations
+    // Generate all permutations of distinct integers
+    // Time: O(n//n!), Space: O(n)
+
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         backtrackPermute(nums, new ArrayList<>(), new boolean[nums.length], result);
@@ -807,11 +800,11 @@ public class LeetCodePatternsReverse_part1 {
         }
     }
 
-    /**
-     * 25.2: Combination Sum
-     * Find all combinations that sum to target (reuse allowed)
-     * Time: O(n^(t/m)), Space: O(t/m)
-     */
+
+    // 25.2: Combination Sum
+    // Find all combinations that sum to target (reuse allowed)
+    // Time: O(n^(t/m)), Space: O(t/m)
+
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         backtrackCombinationSum(candidates, target, 0, new ArrayList<>(), result);
@@ -832,11 +825,11 @@ public class LeetCodePatternsReverse_part1 {
         }
     }
 
-    /**
-     * 25.3: N-Queens
-     * Place n queens on n×n board so no two attack each other
-     * Time: O(n!), Space: O(n^2)
-     */
+
+    // 25.3: N-Queens
+    // Place n queens on n×n board so no two attack each other
+    // Time: O(n!), Space: O(n^2)
+
     public List<List<String>> solveNQueens(int n) {
         List<List<String>> result = new ArrayList<>();
         char[][] board = new char[n][n];
@@ -889,16 +882,15 @@ public class LeetCodePatternsReverse_part1 {
         return solution;
     }
 
-    // =========================================================================
+
     // PATTERN 24: PALINDROMIC SUBSEQUENCE (DYNAMIC PROGRAMMING)
     // Use Case: Palindrome problems, string manipulation
-    // =========================================================================
 
-    /**
-     * 24.1: Longest Palindromic Subsequence
-     * Find length of longest palindromic subsequence
-     * Time: O(n^2), Space: O(n^2)
-     */
+
+    // 24.1: Longest Palindromic Subsequence
+    // Find length of longest palindromic subsequence
+    // Time: O(n^2), Space: O(n^2)
+
     public int longestPalindromeSubseq(String s) {
         int n = s.length();
         int[][] dp = new int[n][n];
@@ -916,11 +908,11 @@ public class LeetCodePatternsReverse_part1 {
         return dp[0][n - 1];
     }
 
-    /**
-     * 24.2: Palindromic Substrings
-     * Count all palindromic substrings
-     * Time: O(n^2), Space: O(1)
-     */
+
+    // 24.2: Palindromic Substrings
+    // Count all palindromic substrings
+    // Time: O(n^2), Space: O(1)
+
     public int countSubstrings(String s) {
         int count = 0;
         int n = s.length();
@@ -944,11 +936,11 @@ public class LeetCodePatternsReverse_part1 {
         return count;
     }
 
-    /**
-     * 24.3: Longest Palindromic Substring
-     * Find the longest palindromic substring
-     * Time: O(n^2), Space: O(1)
-     */
+
+    // 24.3: Longest Palindromic Substring
+    // Find the longest palindromic substring
+    // Time: O(n^2), Space: O(1)
+
     public String longestPalindrome(String s) {
         if (s == null || s.length() < 1) return "";
 
@@ -975,16 +967,15 @@ public class LeetCodePatternsReverse_part1 {
         return right - left - 1;
     }
 
-    // =========================================================================
+
     // PATTERN 23: FIBONACCI (DYNAMIC PROGRAMMING)
     // Use Case: Sequence problems, counting ways
-    // =========================================================================
 
-    /**
-     * 23.1: Climbing Stairs
-     * Count ways to climb n stairs (1 or 2 steps)
-     * Time: O(n), Space: O(1)
-     */
+
+    // 23.1: Climbing Stairs
+    // Count ways to climb n stairs (1 or 2 steps)
+    // Time: O(n), Space: O(1)
+
     public int climbStairs(int n) {
         if (n <= 2) return n;
 
@@ -997,11 +988,11 @@ public class LeetCodePatternsReverse_part1 {
         return second;
     }
 
-    /**
-     * 23.2: House Robber
-     * Maximum amount without robbing adjacent houses
-     * Time: O(n), Space: O(1)
-     */
+
+    // 23.2: House Robber
+    // Maximum amount without robbing adjacent houses
+    // Time: O(n), Space: O(1)
+
     public int rob(int[] nums) {
         if (nums.length == 0) return 0;
         if (nums.length == 1) return nums[0];
@@ -1015,11 +1006,11 @@ public class LeetCodePatternsReverse_part1 {
         return prev1;
     }
 
-    /**
-     * 23.3: Min Cost Climbing Stairs
-     * Find minimum cost to reach top
-     * Time: O(n), Space: O(1)
-     */
+
+    // 23.3: Min Cost Climbing Stairs
+    // Find minimum cost to reach top
+    // Time: O(n), Space: O(1)
+
     public int minCostClimbingStairs(int[] cost) {
         int n = cost.length;
         int first = 0, second = 0;
@@ -1032,16 +1023,15 @@ public class LeetCodePatternsReverse_part1 {
         return second;
     }
 
-    // =========================================================================
+
     // PATTERN 22: 0/1 KNAPSACK (DYNAMIC PROGRAMMING)
     // Use Case: Subset sum, partition problems, resource allocation
-    // =========================================================================
 
-    /**
-     * 22.1: Partition Equal Subset Sum
-     * Check if array can be partitioned into two equal sum subsets
-     * Time: O(n*sum), Space: O(sum)
-     */
+
+    // 22.1: Partition Equal Subset Sum
+    // Check if array can be partitioned into two equal sum subsets
+    // Time: O(n//sum), Space: O(sum)
+
     public boolean canPartition(int[] nums) {
         int totalSum = 0;
         for (int num : nums) totalSum += num;
@@ -1060,11 +1050,11 @@ public class LeetCodePatternsReverse_part1 {
         return dp[target];
     }
 
-    /**
-     * 22.2: Target Sum
-     * Assign +/- to get target sum
-     * Time: O(n*sum), Space: O(sum)
-     */
+
+    // 22.2: Target Sum
+    // Assign +/- to get target sum
+    // Time: O(n//sum), Space: O(sum)
+
     public int findTargetSumWays(int[] nums, int target) {
         int totalSum = 0;
         for (int num : nums) totalSum += num;
@@ -1084,11 +1074,11 @@ public class LeetCodePatternsReverse_part1 {
         return dp[subsetSum];
     }
 
-    /**
-     * 22.3: Coin Change II
-     * Count number of combinations to make amount
-     * Time: O(n*amount), Space: O(amount)
-     */
+
+    // 22.3: Coin Change II
+    // Count number of combinations to make amount
+    // Time: O(n//amount), Space: O(amount)
+
     public int changeCoins(int amount, int[] coins) {
         int[] dp = new int[amount + 1];
         dp[0] = 1;
@@ -1101,16 +1091,15 @@ public class LeetCodePatternsReverse_part1 {
         return dp[amount];
     }
 
-    // =========================================================================
+
     // PATTERN 21: GREEDY ALGORITHMS
     // Use Case: Optimization problems, local optimal choices
-    // =========================================================================
 
-    /**
-     * 21.1: Jump Game
-     * Check if you can reach last index
-     * Time: O(n), Space: O(1)
-     */
+
+    // 21.1: Jump Game
+    // Check if you can reach last index
+    // Time: O(n), Space: O(1)
+
     public boolean canJump(int[] nums) {
         int maxReach = 0;
 
@@ -1122,11 +1111,11 @@ public class LeetCodePatternsReverse_part1 {
         return true;
     }
 
-    /**
-     * 21.2: Jump Game II
-     * Find minimum jumps to reach end
-     * Time: O(n), Space: O(1)
-     */
+
+    // 21.2: Jump Game II
+    // Find minimum jumps to reach end
+    // Time: O(n), Space: O(1)
+
     public int jump(int[] nums) {
         int jumps = 0;
         int currentEnd = 0;
@@ -1145,11 +1134,11 @@ public class LeetCodePatternsReverse_part1 {
         return jumps;
     }
 
-    /**
-     * 21.3: Gas Station
-     * Find starting gas station to complete circuit
-     * Time: O(n), Space: O(1)
-     */
+
+    // 21.3: Gas Station
+    // Find starting gas station to complete circuit
+    // Time: O(n), Space: O(1)
+
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int totalGas = 0, totalCost = 0;
         int currentGas = 0, startIndex = 0;
