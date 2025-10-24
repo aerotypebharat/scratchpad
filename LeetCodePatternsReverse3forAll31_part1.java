@@ -1,23 +1,12 @@
 package com.god.file;
-// LeetCode Patterns Collection - 31 Patterns, 93 Problems with Java Solutions
-// REVERSE ORDER: Pattern 31 to Pattern 1 for practicing from the end first
-// GitHub: https://github.com/yourusername/leetcode-patterns
-
 
 import java.util.*;
 import java.util.concurrent.*;
 
 public class LeetCodePatternsReverse_part1 {
 
-    public static void main(String[] args) {
-        System.out.println("LeetCode Patterns Collection - REVERSE ORDER (31 to 1)");
-        System.out.println("93 Problems - Practice from the end first!");
-    }
-
-
     // PATTERN 31: MULTI-THREAD
     // Use Case: Concurrency, synchronization
-    
 
     // 31.1: Print in Order
 
@@ -87,12 +76,7 @@ public class LeetCodePatternsReverse_part1 {
             }
         }
 
-        public void wantsToEat(int philosopher,
-                               Runnable pickLeftFork,
-                               Runnable pickRightFork,
-                               Runnable eat,
-                               Runnable putLeftFork,
-                               Runnable putRightFork) throws InterruptedException {
+        public void wantsToEat(int philosopher, Runnable pickLeftFork, Runnable pickRightFork, Runnable eat, Runnable putLeftFork, Runnable putRightFork) throws InterruptedException {
 
             int leftFork = philosopher;
             int rightFork = (philosopher + 1) % 5;
@@ -187,19 +171,13 @@ public class LeetCodePatternsReverse_part1 {
 
             for (int i = 1; i <= rows; i++) {
                 for (int j = 1; j <= cols; j++) {
-                    prefixSum[i][j] = matrix[i - 1][j - 1] +
-                            prefixSum[i - 1][j] +
-                            prefixSum[i][j - 1] -
-                            prefixSum[i - 1][j - 1];
+                    prefixSum[i][j] = matrix[i - 1][j - 1] + prefixSum[i - 1][j] + prefixSum[i][j - 1] - prefixSum[i - 1][j - 1];
                 }
             }
         }
 
         public int sumRegion(int row1, int col1, int row2, int col2) {
-            return prefixSum[row2 + 1][col2 + 1] -
-                    prefixSum[row1][col2 + 1] -
-                    prefixSum[row2 + 1][col1] +
-                    prefixSum[row1][col1];
+            return prefixSum[row2 + 1][col2 + 1] - prefixSum[row1][col2 + 1] - prefixSum[row2 + 1][col1] + prefixSum[row1][col1];
         }
     }
 
@@ -697,8 +675,7 @@ public class LeetCodePatternsReverse_part1 {
         return result;
     }
 
-    private void dfsWordSearch(char[][] board, int i, int j, Trie.TrieNode node, StringBuilder current,
-                               List<String> result, boolean[][] visited) {
+    private void dfsWordSearch(char[][] board, int i, int j, Trie.TrieNode node, StringBuilder current, List<String> result, boolean[][] visited) {
         if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || visited[i][j]) {
             return;
         }
