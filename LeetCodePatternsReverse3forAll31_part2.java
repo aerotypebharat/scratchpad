@@ -4,20 +4,13 @@ import java.util.*;
 
 public class LeetCodePatternsReverse_part2 {
 
-    public static void main(String[] args) {
-        System.out.println("LeetCode Patterns Collection - REVERSE ORDER (31 to 1)");
-        System.out.println("93 Problems - Practice from the end first!");
-    }
-
-    
     // PATTERN 20: K-WAY MERGE
     // Use Case: Merging multiple sorted arrays/lists
-    
 
-   
-     // 20.1: Merge K Sorted Lists
-     // Time: O(N log k), Space: O(k)
-     
+
+    // 20.1: Merge K Sorted Lists
+    // Time: O(N log k), Space: O(k)
+
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
 
@@ -45,10 +38,10 @@ public class LeetCodePatternsReverse_part2 {
         return dummy.next;
     }
 
-   
-     // 20.2: Kth Smallest Element in Sorted Matrix
-     // Time: O(k log n), Space: O(n)
-     
+
+    // 20.2: Kth Smallest Element in Sorted Matrix
+    // Time: O(k log n), Space: O(n)
+
     public int kthSmallestMatrix(int[][] matrix, int k) {
         int n = matrix.length;
         PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
@@ -74,10 +67,10 @@ public class LeetCodePatternsReverse_part2 {
         return -1;
     }
 
-   
-     // 20.3: Find K Pairs with Smallest Sums
-     // Time: O(k log k), Space: O(k)
-     
+
+    // 20.3: Find K Pairs with Smallest Sums
+    // Time: O(k log k), Space: O(k)
+
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> result = new ArrayList<>();
         if (nums1.length == 0 || nums2.length == 0 || k == 0) return result;
@@ -101,15 +94,14 @@ public class LeetCodePatternsReverse_part2 {
         return result;
     }
 
-    
+
     // PATTERN 19: TOP 'K' ELEMENTS
     // Use Case: K largest/smallest, frequent elements
-    
 
-   
-     // 19.1: Top K Frequent Elements
-     // Time: O(n log k), Space: O(n + k)
-     
+
+    // 19.1: Top K Frequent Elements
+    // Time: O(n log k), Space: O(n + k)
+
     public int[] topKFrequent(int[] nums, int k) {
         // Count frequencies
         Map<Integer, Integer> frequencyMap = new HashMap<>();
@@ -118,8 +110,7 @@ public class LeetCodePatternsReverse_part2 {
         }
 
         // Min heap to keep top k elements
-        PriorityQueue<Map.Entry<Integer, Integer>> minHeap =
-                new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
+        PriorityQueue<Map.Entry<Integer, Integer>> minHeap = new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
 
         for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
             minHeap.offer(entry);
@@ -136,10 +127,10 @@ public class LeetCodePatternsReverse_part2 {
         return result;
     }
 
-   
-     // 19.2: Kth Largest Element in Array
-     // Time: O(n log k), Space: O(k)
-     
+
+    // 19.2: Kth Largest Element in Array
+    // Time: O(n log k), Space: O(k)
+
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 
@@ -152,15 +143,13 @@ public class LeetCodePatternsReverse_part2 {
         return minHeap.peek();
     }
 
-   
-     // 19.3: K Closest Points to Origin
-     // Time: O(n log k), Space: O(k)
-     
+
+    // 19.3: K Closest Points to Origin
+    // Time: O(n log k), Space: O(k)
+
     public int[][] kClosest(int[][] points, int k) {
         // Max heap to keep k closest points
-        PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
-                (a, b) -> Integer.compare(distance(b), distance(a))
-        );
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a, b) -> Integer.compare(distance(b), distance(a)));
 
         for (int[] point : points) {
             maxHeap.offer(point);
@@ -180,16 +169,15 @@ public class LeetCodePatternsReverse_part2 {
         return point[0] * point[0] + point[1] * point[1];
     }
 
-    
+
     // PATTERN 18: BITWISE XOR
     // Use Case: Finding unique elements, bit manipulation
-    
 
-   
-     // 18.1: Single Number
-     // Find the number that appears once (others appear twice)
-     // Time: O(n), Space: O(1)
-     
+
+    // 18.1: Single Number
+    // Find the number that appears once (others appear twice)
+    // Time: O(n), Space: O(1)
+
     public int singleNumber(int[] nums) {
         int result = 0;
         for (int num : nums) {
@@ -198,11 +186,11 @@ public class LeetCodePatternsReverse_part2 {
         return result;
     }
 
-   
-     // 18.2: Missing Number
-     // Find missing number in range [0, n]
-     // Time: O(n), Space: O(1)
-     
+
+    // 18.2: Missing Number
+    // Find missing number in range [0, n]
+    // Time: O(n), Space: O(1)
+
     public int missingNumber(int[] nums) {
         int n = nums.length;
         int result = n; // Initialize with n since it's missing from indices
@@ -213,11 +201,11 @@ public class LeetCodePatternsReverse_part2 {
         return result;
     }
 
-   
-     // 18.3: Complement of Base 10 Integer
-     // Flip all bits (excluding leading zeros)
-     // Time: O(1), Space: O(1)
-     
+
+    // 18.3: Complement of Base 10 Integer
+    // Flip all bits (excluding leading zeros)
+    // Time: O(1), Space: O(1)
+
     public int bitwiseComplement(int n) {
         if (n == 0) return 1;
 
@@ -232,15 +220,14 @@ public class LeetCodePatternsReverse_part2 {
         return n ^ allOnes;
     }
 
-    
+
     // PATTERN 17: MODIFIED BINARY SEARCH
     // Use Case: Rotated arrays, unknown order, bitonic arrays
-    
 
-   
-     // 17.1: Search in Rotated Sorted Array
-     // Time: O(log n), Space: O(1)
-     
+
+    // 17.1: Search in Rotated Sorted Array
+    // Time: O(log n), Space: O(1)
+
     public int searchRotated(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
 
@@ -267,10 +254,10 @@ public class LeetCodePatternsReverse_part2 {
         return -1;
     }
 
-   
-     // 17.2: Find First and Last Position in Sorted Array
-     // Time: O(log n), Space: O(1)
-     
+
+    // 17.2: Find First and Last Position in Sorted Array
+    // Time: O(log n), Space: O(1)
+
     public int[] searchRange(int[] nums, int target) {
         int[] result = {-1, -1};
         if (nums.length == 0) return result;
@@ -316,10 +303,10 @@ public class LeetCodePatternsReverse_part2 {
         return index;
     }
 
-   
-     // 17.3: Find Peak Element
-     // Time: O(log n), Space: O(1)
-     
+
+    // 17.3: Find Peak Element
+    // Time: O(log n), Space: O(1)
+
     public int findPeakElement(int[] nums) {
         int left = 0, right = nums.length - 1;
 
@@ -335,16 +322,15 @@ public class LeetCodePatternsReverse_part2 {
         return left;
     }
 
-    
+
     // PATTERN 16: SUBSETS
     // Use Case: Combinations, permutations, power set
-    
 
-   
-     // 16.1: Subsets
-     // Generate all possible subsets
-     // Time: O(n // 2^n), Space: O(n)
-     
+
+    // 16.1: Subsets
+    // Generate all possible subsets
+    // Time: O(n // 2^n), Space: O(n)
+
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         backtrackSubsets(nums, 0, new ArrayList<>(), result);
@@ -361,10 +347,10 @@ public class LeetCodePatternsReverse_part2 {
         }
     }
 
-   
-     // 16.2: Subsets II (with duplicates)
-     // Time: O(n // 2^n), Space: O(n)
-     
+
+    // 16.2: Subsets II (with duplicates)
+    // Time: O(n // 2^n), Space: O(n)
+
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums); // Sort to handle duplicates
         List<List<Integer>> result = new ArrayList<>();
@@ -385,10 +371,10 @@ public class LeetCodePatternsReverse_part2 {
         }
     }
 
-   
-     // 16.3: Letter Case Permutation
-     // Time: O(n // 2^n), Space: O(n)
-     
+
+    // 16.3: Letter Case Permutation
+    // Time: O(n // 2^n), Space: O(n)
+
     public List<String> letterCasePermutation(String s) {
         List<String> result = new ArrayList<>();
         backtrackLetterCase(s.toCharArray(), 0, result);
@@ -416,15 +402,14 @@ public class LeetCodePatternsReverse_part2 {
         backtrackLetterCase(chars, index + 1, result);
     }
 
-    
+
     // PATTERN 15: TWO HEAPS
     // Use Case: Finding median, partitioning data streams
-    
 
-   
-     // 15.1: Find Median from Data Stream
-     // Time: O(log n) per operation, Space: O(n)
-     
+
+    // 15.1: Find Median from Data Stream
+    // Time: O(log n) per operation, Space: O(n)
+
     class MedianFinder {
         private PriorityQueue<Integer> maxHeap; // lower half
         private PriorityQueue<Integer> minHeap; // upper half
@@ -459,10 +444,10 @@ public class LeetCodePatternsReverse_part2 {
         }
     }
 
-   
-     // 15.2: Sliding Window Median
-     // Time: O(n log k), Space: O(k)
-     
+
+    // 15.2: Sliding Window Median
+    // Time: O(n log k), Space: O(k)
+
     public double[] medianSlidingWindow(int[] nums, int k) {
         double[] result = new double[nums.length - k + 1];
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
@@ -510,11 +495,11 @@ public class LeetCodePatternsReverse_part2 {
         }
     }
 
-   
-     // 15.3: IPO
-     // Maximize capital by selecting projects
-     // Time: O(n log n), Space: O(n)
-     
+
+    // 15.3: IPO
+    // Maximize capital by selecting projects
+    // Time: O(n log n), Space: O(n)
+
     public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
         int n = profits.length;
         int[][] projects = new int[n][2];
@@ -545,15 +530,14 @@ public class LeetCodePatternsReverse_part2 {
         return w;
     }
 
-    
+
     // PATTERN 14: ISLAND (MATRIX TRAVERSAL)
     // Use Case: Grid problems, connected components in matrix
-    
 
-   
-     // 14.1: Max Area of Island
-     // Time: O(m//n), Space: O(m//n) for recursion stack
-     
+
+    // 14.1: Max Area of Island
+    // Time: O(m//n), Space: O(m//n) for recursion stack
+
     public int maxAreaOfIsland(int[][] grid) {
         if (grid == null || grid.length == 0) return 0;
 
@@ -577,14 +561,13 @@ public class LeetCodePatternsReverse_part2 {
 
         grid[i][j] = 0; // Mark as visited
 
-        return 1 + dfsIslandArea(grid, i + 1, j) + dfsIslandArea(grid, i - 1, j) +
-                dfsIslandArea(grid, i, j + 1) + dfsIslandArea(grid, i, j - 1);
+        return 1 + dfsIslandArea(grid, i + 1, j) + dfsIslandArea(grid, i - 1, j) + dfsIslandArea(grid, i, j + 1) + dfsIslandArea(grid, i, j - 1);
     }
 
-   
-     // 14.2: Number of Closed Islands
-     // Time: O(m//n), Space: O(m//n)
-     
+
+    // 14.2: Number of Closed Islands
+    // Time: O(m//n), Space: O(m//n)
+
     public int closedIsland(int[][] grid) {
         if (grid == null || grid.length == 0) return 0;
 
@@ -625,10 +608,10 @@ public class LeetCodePatternsReverse_part2 {
         dfsClosedIslands(grid, i, j - 1);
     }
 
-   
-     // 14.3: Surrounded Regions
-     // Time: O(m//n), Space: O(m//n)
-     
+
+    // 14.3: Surrounded Regions
+    // Time: O(m//n), Space: O(m//n)
+
     public void solveSurroundedRegions(char[][] board) {
         if (board == null || board.length == 0) return;
 
@@ -670,15 +653,14 @@ public class LeetCodePatternsReverse_part2 {
         dfsSurrounded(board, i, j - 1);
     }
 
-    
+
     // PATTERN 13: GRAPHS
     // Use Case: Connectivity, traversal, cycle detection
-    
 
-   
-     // 13.1: Number of Islands (DFS)
-     // Time: O(m//n), Space: O(m//n)
-     
+
+    // 13.1: Number of Islands (DFS)
+    // Time: O(m//n), Space: O(m//n)
+
     public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0) return 0;
 
@@ -710,10 +692,10 @@ public class LeetCodePatternsReverse_part2 {
         dfsGrid(grid, i, j - 1);
     }
 
-   
-     // 13.2: Clone Graph
-     // Time: O(V + E), Space: O(V)
-     
+
+    // 13.2: Clone Graph
+    // Time: O(V + E), Space: O(V)
+
     public Node cloneGraph(Node node) {
         if (node == null) return null;
 
@@ -736,10 +718,10 @@ public class LeetCodePatternsReverse_part2 {
         return clone;
     }
 
-   
-     // 13.3: Course Schedule (Cycle Detection)
-     // Time: O(V + E), Space: O(V + E)
-     
+
+    // 13.3: Course Schedule (Cycle Detection)
+    // Time: O(V + E), Space: O(V + E)
+
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         // Build adjacency list
         List<List<Integer>> graph = new ArrayList<>();
@@ -777,15 +759,14 @@ public class LeetCodePatternsReverse_part2 {
         return false;
     }
 
-    
+
     // PATTERN 12: TREE DEPTH FIRST SEARCH (DFS)
     // Use Case: Path sum, tree properties, backtracking in trees
-    
 
-   
-     // 12.1: Path Sum
-     // Time: O(n), Space: O(h)
-     
+
+    // 12.1: Path Sum
+    // Time: O(n), Space: O(h)
+
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) return false;
 
@@ -795,14 +776,13 @@ public class LeetCodePatternsReverse_part2 {
         }
 
         // Recursively check left and right subtrees
-        return hasPathSum(root.left, targetSum - root.val) ||
-                hasPathSum(root.right, targetSum - root.val);
+        return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
     }
 
-   
-     // 12.2: Sum Root to Leaf Numbers
-     // Time: O(n), Space: O(h)
-     
+
+    // 12.2: Sum Root to Leaf Numbers
+    // Time: O(n), Space: O(h)
+
     public int sumNumbers(TreeNode root) {
         return dfsSumNumbers(root, 0);
     }
@@ -820,10 +800,10 @@ public class LeetCodePatternsReverse_part2 {
         return dfsSumNumbers(node.left, currentSum) + dfsSumNumbers(node.right, currentSum);
     }
 
-   
-     // 12.3: Binary Tree Maximum Path Sum
-     // Time: O(n), Space: O(h)
-     
+
+    // 12.3: Binary Tree Maximum Path Sum
+    // Time: O(n), Space: O(h)
+
     private int maxPathSumValue = Integer.MIN_VALUE;
 
     public int maxPathSum(TreeNode root) {
@@ -846,15 +826,14 @@ public class LeetCodePatternsReverse_part2 {
         return node.val + Math.max(leftMax, rightMax);
     }
 
-    
+
     // PATTERN 11: TREE BREADTH FIRST SEARCH (BFS)
     // Use Case: Shortest path, level operations
-    
 
-   
-     // 11.1: Minimum Depth of Binary Tree
-     // Time: O(n), Space: O(n)
-     
+
+    // 11.1: Minimum Depth of Binary Tree
+    // Time: O(n), Space: O(n)
+
     public int minDepth(TreeNode root) {
         if (root == null) return 0;
 
@@ -881,10 +860,10 @@ public class LeetCodePatternsReverse_part2 {
         return depth;
     }
 
-   
-     // 11.2: Binary Tree Right Side View
-     // Time: O(n), Space: O(n)
-     
+
+    // 11.2: Binary Tree Right Side View
+    // Time: O(n), Space: O(n)
+
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) return result;
@@ -910,10 +889,10 @@ public class LeetCodePatternsReverse_part2 {
         return result;
     }
 
-   
-     // 11.3: Cousins in Binary Tree
-     // Time: O(n), Space: O(n)
-     
+
+    // 11.3: Cousins in Binary Tree
+    // Time: O(n), Space: O(n)
+
     public boolean isCousins(TreeNode root, int x, int y) {
         if (root == null) return false;
 
@@ -929,8 +908,7 @@ public class LeetCodePatternsReverse_part2 {
 
                 // Check if x and y are children of same parent
                 if (node.left != null && node.right != null) {
-                    if ((node.left.val == x && node.right.val == y) ||
-                            (node.left.val == y && node.right.val == x)) {
+                    if ((node.left.val == x && node.right.val == y) || (node.left.val == y && node.right.val == x)) {
                         return false;
                     }
                 }
@@ -948,9 +926,9 @@ public class LeetCodePatternsReverse_part2 {
         return false;
     }
 
-    
+
     // SUPPORTING DATA STRUCTURES
-    
+
 
     // ListNode definition for linked list problems
     class ListNode {
@@ -1023,13 +1001,13 @@ public class LeetCodePatternsReverse_part2 {
     }
 }
 
-/////
- // REVERSE ORDER SUMMARY:
- // Patterns are listed from 31 (Multi-thread) to 1 (Two Pointers)
- // This allows practicing from the end patterns first
- // <p>
- // Total: 31 Patterns, 93 Problems with complete Java solutions
- // Each pattern includes time/space complexity analysis
- // <p>
- // Perfect for systematic interview preparation starting from advanced topics!
+/// //
+// REVERSE ORDER SUMMARY:
+// Patterns are listed from 31 (Multi-thread) to 1 (Two Pointers)
+// This allows practicing from the end patterns first
+// <p>
+// Total: 31 Patterns, 93 Problems with complete Java solutions
+// Each pattern includes time/space complexity analysis
+// <p>
+// Perfect for systematic interview preparation starting from advanced topics!
  
