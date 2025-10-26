@@ -10,7 +10,7 @@ public class LeetCodePatterns_part2 {
     // Use Case: Shortest path, level operations
 
 
-    //11.1: Minimum Depth of Binary Tree
+    // 11.1: Minimum Depth of Binary Tree
 
     public int minDepth(TreeNode root) {
         if (root == null) return 0;
@@ -39,7 +39,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //11.2: Binary Tree Right Side View
+    // 11.2: Binary Tree Right Side View
 
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> result = new ArrayList<>();
@@ -67,7 +67,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //11.3: Cousins in Binary Tree
+    // 11.3: Cousins in Binary Tree
 
     public boolean isCousins(TreeNode root, int x, int y) {
         if (root == null) return false;
@@ -107,7 +107,7 @@ public class LeetCodePatterns_part2 {
     // Use Case: Path sum, tree properties, backtracking in trees
 
 
-    //12.1: Path Sum
+    // 12.1: Path Sum
 
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) return false;
@@ -122,7 +122,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //12.2: Sum Root to Leaf Numbers
+    // 12.2: Sum Root to Leaf Numbers
 
     public int sumNumbers(TreeNode root) {
         return dfsSumNumbers(root, 0);
@@ -142,7 +142,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //12.3: Binary Tree Maximum Path Sum
+    // 12.3: Binary Tree Maximum Path Sum
 
     private int maxPathSum = Integer.MIN_VALUE;
 
@@ -171,7 +171,7 @@ public class LeetCodePatterns_part2 {
     // Use Case: Connectivity, traversal, cycle detection
 
 
-    //13.1: Number of Islands (DFS)
+    // 13.1: Number of Islands (DFS)
 
     public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0) return 0;
@@ -205,7 +205,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //13.2: Clone Graph
+    // 13.2: Clone Graph
 
     public Node cloneGraph(Node node) {
         if (node == null) return null;
@@ -230,7 +230,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //13.3: Course Schedule (Cycle Detection)
+    // 13.3: Course Schedule (Cycle Detection)
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         // Build adjacency list
@@ -274,7 +274,7 @@ public class LeetCodePatterns_part2 {
     // Use Case: Grid problems, connected components in matrix
 
 
-    //14.1: Max Area of Island
+    // 14.1: Max Area of Island
 
     public int maxAreaOfIsland(int[][] grid) {
         if (grid == null || grid.length == 0) return 0;
@@ -303,7 +303,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //14.2: Number of Closed Islands
+    // 14.2: Number of Closed Islands
 
     public int closedIsland(int[][] grid) {
         if (grid == null || grid.length == 0) return 0;
@@ -346,7 +346,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //14.3: Surrounded Regions
+    // 14.3: Surrounded Regions
 
     public void solveSurroundedRegions(char[][] board) {
         if (board == null || board.length == 0) return;
@@ -394,7 +394,7 @@ public class LeetCodePatterns_part2 {
     // Use Case: Finding median, partitioning data streams
 
 
-    //15.1: Find Median from Data Stream
+    // 15.1: Find Median from Data Stream
 
     class MedianFinder {
         private PriorityQueue<Integer> maxHeap; // lower half
@@ -431,7 +431,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //15.2: Sliding Window Median
+    // 15.2: Sliding Window Median
 
     public double[] medianSlidingWindow(int[] nums, int k) {
         double[] result = new double[nums.length - k + 1];
@@ -481,7 +481,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //15.3: IPO
+    // 15.3: IPO
 
     public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
         int n = profits.length;
@@ -518,7 +518,7 @@ public class LeetCodePatterns_part2 {
     // Use Case: Combinations, permutations, power set
 
 
-    //16.1: Subsets
+    // 16.1: Subsets
 
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
@@ -537,7 +537,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //16.2: Subsets II (with duplicates)
+    // 16.2: Subsets II (with duplicates)
 
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums); // Sort to handle duplicates
@@ -560,7 +560,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //16.3: Letter Case Permutation
+    // 16.3: Letter Case Permutation
 
     public List<String> letterCasePermutation(String s) {
         List<String> result = new ArrayList<>();
@@ -594,7 +594,7 @@ public class LeetCodePatterns_part2 {
     // Use Case: Rotated arrays, unknown order, bitonic arrays
 
 
-    //17.1: Search in Rotated Sorted Array
+    // 17.1: Search in Rotated Sorted Array
 
     public int searchRotated(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
@@ -623,7 +623,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //17.2: Find First and Last Position in Sorted Array
+    // 17.2: Find First and Last Position in Sorted Array
 
     public int[] searchRange(int[] nums, int target) {
         int[] result = {-1, -1};
@@ -671,7 +671,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //17.3: Find Peak Element
+    // 17.3: Find Peak Element
 
     public int findPeakElement(int[] nums) {
         int left = 0, right = nums.length - 1;
@@ -693,7 +693,7 @@ public class LeetCodePatterns_part2 {
     // Use Case: Finding unique elements, bit manipulation
 
 
-    //18.1: Single Number
+    // 18.1: Single Number
 
     public int singleNumber(int[] nums) {
         int result = 0;
@@ -704,7 +704,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //18.2: Missing Number
+    // 18.2: Missing Number
 
     public int missingNumber(int[] nums) {
         int n = nums.length;
@@ -717,7 +717,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //18.3: Complement of Base 10 Integer
+    // 18.3: Complement of Base 10 Integer
 
     public int bitwiseComplement(int n) {
         if (n == 0) return 1;
@@ -738,7 +738,7 @@ public class LeetCodePatterns_part2 {
     // Use Case: K largest/smallest, frequent elements
 
 
-    //19.1: Top K Frequent Elements
+    // 19.1: Top K Frequent Elements
 
     public int[] topKFrequent(int[] nums, int k) {
         // Count frequencies
@@ -766,7 +766,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //19.2: Kth Largest Element in Array
+    // 19.2: Kth Largest Element in Array
 
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
@@ -781,7 +781,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //19.3: K Closest Points to Origin
+    // 19.3: K Closest Points to Origin
 
     public int[][] kClosest(int[][] points, int k) {
         // Max heap to keep k closest points
@@ -810,7 +810,7 @@ public class LeetCodePatterns_part2 {
     // Use Case: Merging multiple sorted arrays/lists
 
 
-    //20.1: Merge K Sorted Lists
+    // 20.1: Merge K Sorted Lists
 
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
@@ -840,7 +840,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //20.2: Kth Smallest Element in Sorted Matrix
+    // 20.2: Kth Smallest Element in Sorted Matrix
 
     public int kthSmallestMatrix(int[][] matrix, int k) {
         int n = matrix.length;
@@ -868,7 +868,7 @@ public class LeetCodePatterns_part2 {
     }
 
 
-    //20.3: Find K Pairs with Smallest Sums
+    // 20.3: Find K Pairs with Smallest Sums
 
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> result = new ArrayList<>();
