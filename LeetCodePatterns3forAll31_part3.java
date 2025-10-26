@@ -10,7 +10,7 @@ public class LeetCodePatterns_part3 {
     // Use Case: Optimization problems, local optimal choices
 
 
-    //21.1: Jump Game
+    // 21.1: Jump Game
 
     public boolean canJump(int[] nums) {
         int maxReach = 0;
@@ -24,7 +24,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //21.2: Jump Game II
+    // 21.2: Jump Game II
 
     public int jump(int[] nums) {
         int jumps = 0;
@@ -45,7 +45,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //21.3: Gas Station
+    // 21.3: Gas Station
 
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int totalGas = 0, totalCost = 0;
@@ -70,7 +70,7 @@ public class LeetCodePatterns_part3 {
     // Use Case: Subset sum, partition problems, resource allocation
 
 
-    //22.1: Partition Equal Subset Sum
+    // 22.1: Partition Equal Subset Sum
 
     public boolean canPartition(int[] nums) {
         int totalSum = 0;
@@ -91,7 +91,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //22.2: Target Sum
+    // 22.2: Target Sum
 
     public int findTargetSumWays(int[] nums, int target) {
         int totalSum = 0;
@@ -113,7 +113,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //22.3: Coin Change II
+    // 22.3: Coin Change II
 
     public int changeCoins(int amount, int[] coins) {
         int[] dp = new int[amount + 1];
@@ -132,7 +132,7 @@ public class LeetCodePatterns_part3 {
     // Use Case: Sequence problems, counting ways
 
 
-    //23.1: Climbing Stairs
+    // 23.1: Climbing Stairs
 
     public int climbStairs(int n) {
         if (n <= 2) return n;
@@ -147,7 +147,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //23.2: House Robber
+    // 23.2: House Robber
 
     public int rob(int[] nums) {
         if (nums.length == 0) return 0;
@@ -163,7 +163,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //23.3: Min Cost Climbing Stairs
+    // 23.3: Min Cost Climbing Stairs
 
     public int minCostClimbingStairs(int[] cost) {
         int n = cost.length;
@@ -182,7 +182,7 @@ public class LeetCodePatterns_part3 {
     // Use Case: Palindrome problems, string manipulation
 
 
-    //24.1: Longest Palindromic Subsequence
+    // 24.1: Longest Palindromic Subsequence
 
     public int longestPalindromeSubseq(String s) {
         int n = s.length();
@@ -202,7 +202,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //24.2: Palindromic Substrings
+    // 24.2: Palindromic Substrings
 
     public int countSubstrings(String s) {
         int count = 0;
@@ -228,7 +228,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //24.3: Longest Palindromic Substring
+    // 24.3: Longest Palindromic Substring
 
     public String longestPalindrome(String s) {
         if (s == null || s.length() < 1) return "";
@@ -253,7 +253,7 @@ public class LeetCodePatterns_part3 {
     // Use Case: Permutations, combinations, constraint satisfaction
 
 
-    //25.1: Permutations
+    // 25.1: Permutations
 
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
@@ -279,7 +279,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //25.2: Combination Sum
+    // 25.2: Combination Sum
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
@@ -302,7 +302,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //25.3: N-Queens
+    // 25.3: N-Queens
 
     public List<List<String>> solveNQueens(int n) {
         List<List<String>> result = new ArrayList<>();
@@ -361,8 +361,8 @@ public class LeetCodePatterns_part3 {
     // Use Case: Prefix searching, dictionary problems
 
 
-    //26.1: Implement Trie (Prefix Tree)
-    //Time: O(L) for insert/search/startsWith, Space: O(N*L)
+    // 26.1: Implement Trie (Prefix Tree)
+    // Time: O(L) for insert/search/startsWith, Space: O(N*L)
 
     class Trie {
         class TrieNode {
@@ -416,9 +416,9 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //26.2: Word Search II
-    //Find all words from dictionary in board using Trie
-    //Time: O(m*n*4^L), Space: O(k*L) where k is number of words
+    // 26.2: Word Search II
+    // Find all words from dictionary in board using Trie
+    // Time: O(m*n*4^L), Space: O(k*L) where k is number of words
 
     public List<String> findWords(char[][] board, String[] words) {
         List<String> result = new ArrayList<>();
@@ -470,9 +470,9 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //26.3: Replace Words
-    //Replace words with their shortest root
-    //Time: O(n*L), Space: O(n*L)
+    // 26.3: Replace Words
+    // Replace words with their shortest root
+    // Time: O(n*L), Space: O(n*L)
 
     public String replaceWords(List<String> dictionary, String sentence) {
         Trie trie = new Trie();
@@ -515,7 +515,7 @@ public class LeetCodePatterns_part3 {
     // Use Case: Dependency resolution, course scheduling
 
 
-    //27.1: Course Schedule II
+    // 27.1: Course Schedule II
 
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         // Build graph
@@ -557,7 +557,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //27.2: Alien Dictionary
+    // 27.2: Alien Dictionary
 
     public String alienOrder(String[] words) {
         // Build graph
@@ -619,7 +619,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //27.3: Sequence Reconstruction
+    // 27.3: Sequence Reconstruction
 
     public boolean sequenceReconstruction(int[] nums, List<List<Integer>> sequences) {
         Map<Integer, Set<Integer>> graph = new HashMap<>();
@@ -677,7 +677,7 @@ public class LeetCodePatterns_part3 {
     // Use Case: Dynamic connectivity, cycle detection
 
 
-    //28.1: Number of Provinces
+    // 28.1: Number of Provinces
 
     public int findCircleNum(int[][] isConnected) {
         int n = isConnected.length;
@@ -694,7 +694,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //28.2: Redundant Connection
+    // 28.2: Redundant Connection
 
     public int[] findRedundantConnection(int[][] edges) {
         int n = edges.length;
@@ -709,7 +709,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //28.3: Number of Islands II
+    // 28.3: Number of Islands II
 
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
         List<Integer> result = new ArrayList<>();
@@ -791,7 +791,7 @@ public class LeetCodePatterns_part3 {
     // Use Case: Range queries, sorted data operations
 
 
-    //29.1: Contains Duplicate III
+    // 29.1: Contains Duplicate III
 
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
         TreeSet<Long> set = new TreeSet<>();
@@ -814,7 +814,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //29.2: Count of Smaller Numbers After Self
+    // 29.2: Count of Smaller Numbers After Self
 
     public List<Integer> countSmaller(int[] nums) {
         int n = nums.length;
@@ -861,7 +861,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //29.3: Data Stream as Disjoint Intervals
+    // 29.3: Data Stream as Disjoint Intervals
 
     class SummaryRanges {
         private TreeSet<int[]> intervals;
@@ -905,7 +905,7 @@ public class LeetCodePatterns_part3 {
     // Use Case: Range sum queries, subarray problems
 
 
-    //30.1: Subarray Sum Equals K
+    // 30.1: Subarray Sum Equals K
 
     public int subarraySum(int[] nums, int k) {
         Map<Integer, Integer> prefixSumCount = new HashMap<>();
@@ -926,7 +926,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //30.2: Continuous Subarray Sum
+    // 30.2: Continuous Subarray Sum
 
     public boolean checkSubarraySum(int[] nums, int k) {
         Map<Integer, Integer> remainderIndex = new HashMap<>();
@@ -950,7 +950,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //30.3: Range Sum Query 2D - Immutable
+    // 30.3: Range Sum Query 2D - Immutable
 
     class NumMatrix {
         private int[][] prefixSum;
@@ -978,7 +978,7 @@ public class LeetCodePatterns_part3 {
     // Use Case: Concurrency, synchronization
 
 
-    //31.1: Print in Order
+    // 31.1: Print in Order
 
     class Foo {
         private Semaphore firstDone = new Semaphore(0);
@@ -1005,7 +1005,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //31.2: Print FooBar Alternately
+    // 31.2: Print FooBar Alternately
 
     class FooBar {
         private int n;
@@ -1034,7 +1034,7 @@ public class LeetCodePatterns_part3 {
     }
 
 
-    //31.3: Dining Philosophers
+    // 31.3: Dining Philosophers
 
     class DiningPhilosophers {
         private Semaphore[] forks = new Semaphore[5];
