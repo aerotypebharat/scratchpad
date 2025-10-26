@@ -9,8 +9,8 @@ public class LeetCodePatterns_part1 {
 
 
 
-    //1.1: Two Sum II - Input Array Is Sorted
-    //Find two numbers that add up to target in sorted array
+    // 1.1: Two Sum II - Input Array Is Sorted
+    // Find two numbers that add up to target in sorted array
 
     public int[] twoSumSorted(int[] numbers, int target) {
         int left = 0, right = numbers.length - 1;
@@ -28,8 +28,8 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //1.2: Container With Most Water
-    //Find two lines that form container with most water
+    // 1.2: Container With Most Water
+    // Find two lines that form container with most water
 
     public int maxArea(int[] height) {
         int left = 0, right = height.length - 1;
@@ -50,8 +50,8 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //1.3: Remove Duplicates from Sorted Array
-    //Remove duplicates in-place, return new length
+    // 1.3: Remove Duplicates from Sorted Array
+    // Remove duplicates in-place, return new length
 
     public int removeDuplicates(int[] nums) {
         if (nums.length == 0) return 0;
@@ -72,7 +72,7 @@ public class LeetCodePatterns_part1 {
     //
 
 
-    //2.1: Linked List Cycle Detection
+    // 2.1: Linked List Cycle Detection
 
     public boolean hasCycle(ListNode head) {
         if (head == null) return false;
@@ -89,7 +89,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //2.2: Find Duplicate Number (Floyd's Tortoise and Hare)
+    // 2.2: Find Duplicate Number (Floyd's Tortoise and Hare)
 
     public int findDuplicate(int[] nums) {
         int slow = nums[0];
@@ -111,7 +111,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //2.3: Middle of Linked List
+    // 2.3: Middle of Linked List
 
     public ListNode middleNode(ListNode head) {
         ListNode slow = head;
@@ -130,7 +130,7 @@ public class LeetCodePatterns_part1 {
     //
 
 
-    //3.1: Maximum Average Subarray I
+    // 3.1: Maximum Average Subarray I
 
     public double findMaxAverage(int[] nums, int k) {
         double windowSum = 0;
@@ -152,7 +152,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //3.2: Longest Substring Without Repeating Characters
+    // 3.2: Longest Substring Without Repeating Characters
 
     public int lengthOfLongestSubstring(String s) {
         Map<Character, Integer> charIndex = new HashMap<>();
@@ -173,8 +173,8 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //3.3: Permutation in String
-    //Check if s2 contains permutation of s1
+    // 3.3: Permutation in String
+    // Check if s2 contains permutation of s1
 
     public boolean checkInclusion(String s1, String s2) {
         if (s1.length() > s2.length()) return false;
@@ -210,7 +210,7 @@ public class LeetCodePatterns_part1 {
     //
 
 
-    //4.1: Merge Intervals
+    // 4.1: Merge Intervals
 
     public int[][] mergeIntervals(int[][] intervals) {
         if (intervals.length <= 1) return intervals;
@@ -237,7 +237,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //4.2: Insert Interval
+    // 4.2: Insert Interval
 
     public int[][] insertInterval(int[][] intervals, int[] newInterval) {
         List<int[]> result = new ArrayList<>();
@@ -266,8 +266,8 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //4.3: Meeting Rooms II
-    //Find minimum conference rooms required
+    // 4.3: Meeting Rooms II
+    // Find minimum conference rooms required
 
     public int minMeetingRooms(int[][] intervals) {
         if (intervals.length == 0) return 0;
@@ -303,7 +303,7 @@ public class LeetCodePatterns_part1 {
     //
 
 
-    //5.1: Find All Missing Numbers
+    // 5.1: Find All Missing Numbers
 
     public List<Integer> findDisappearedNumbers(int[] nums) {
         int i = 0;
@@ -326,7 +326,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //5.2: Find Duplicate Number using Cyclic Sort
+    // 5.2: Find Duplicate Number using Cyclic Sort
 
     public int findDuplicateCyclic(int[] nums) {
         int i = 0;
@@ -346,7 +346,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //5.3: First Missing Positive
+    // 5.3: First Missing Positive
 
     public int firstMissingPositive(int[] nums) {
         int n = nums.length;
@@ -380,7 +380,7 @@ public class LeetCodePatterns_part1 {
     //
 
 
-    //6.1: Reverse Linked List
+    // 6.1: Reverse Linked List
 
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
@@ -396,8 +396,8 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //6.2: Reverse Linked List II
-    //Reverse from position left to right
+    // 6.2: Reverse Linked List II
+    // Reverse from position left to right
 
     public ListNode reverseBetween(ListNode head, int left, int right) {
         if (head == null || left == right) return head;
@@ -426,7 +426,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //6.3: Reverse Nodes in k-Group
+    // 6.3: Reverse Nodes in k-Group
 
     public ListNode reverseKGroup(ListNode head, int k) {
         if (head == null || k == 1) return head;
@@ -463,7 +463,7 @@ public class LeetCodePatterns_part1 {
     //
 
 
-    //7.1: Valid Parentheses
+    // 7.1: Valid Parentheses
 
     public boolean isValidParentheses(String s) {
         Stack<Character> stack = new Stack<>();
@@ -483,8 +483,8 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //7.2: Daily Temperatures
-    //Find days until warmer temperature
+    // 7.2: Daily Temperatures
+    // Find days until warmer temperature
 
     public int[] dailyTemperatures(int[] temperatures) {
         int n = temperatures.length;
@@ -502,7 +502,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //7.3: Evaluate Reverse Polish Notation
+    // 7.3: Evaluate Reverse Polish Notation
 
     public int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
@@ -533,7 +533,7 @@ public class LeetCodePatterns_part1 {
     //
 
 
-    //8.1: Next Greater Element I
+    // 8.1: Next Greater Element I
 
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         Map<Integer, Integer> nextGreater = new HashMap<>();
@@ -554,7 +554,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //8.2: Trapping Rain Water
+    // 8.2: Trapping Rain Water
 
     public int trapRainWater(int[] height) {
         Stack<Integer> stack = new Stack<>();
@@ -575,7 +575,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //8.3: Largest Rectangle in Histogram
+    // 8.3: Largest Rectangle in Histogram
 
     public int largestRectangleArea(int[] heights) {
         Stack<Integer> stack = new Stack<>();
@@ -601,7 +601,7 @@ public class LeetCodePatterns_part1 {
     //
 
 
-    //9.1: Two Sum
+    // 9.1: Two Sum
 
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> numMap = new HashMap<>();
@@ -617,7 +617,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //9.2: Group Anagrams
+    // 9.2: Group Anagrams
 
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
@@ -637,7 +637,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //9.3: Longest Consecutive Sequence
+    // 9.3: Longest Consecutive Sequence
 
     public int longestConsecutive(int[] nums) {
         Set<Integer> numSet = new HashSet<>();
@@ -670,7 +670,7 @@ public class LeetCodePatterns_part1 {
     //
 
 
-    //10.1: Binary Tree Level Order Traversal
+    // 10.1: Binary Tree Level Order Traversal
 
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
@@ -696,7 +696,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //10.2: Binary Tree Zigzag Level Order Traversal
+    // 10.2: Binary Tree Zigzag Level Order Traversal
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
@@ -729,7 +729,7 @@ public class LeetCodePatterns_part1 {
     }
 
 
-    //10.3: Average of Levels in Binary Tree
+    // 10.3: Average of Levels in Binary Tree
 
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> result = new ArrayList<>();
