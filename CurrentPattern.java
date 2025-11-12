@@ -1,3 +1,9 @@
+package com.interview.postwells;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CurrentPattern {
     // PATTERN 5: CYCLIC SORT
     // Use Case: Arrays with numbers in range [1, n], missing/duplicate numbers
     //
@@ -73,3 +79,4 @@
         nums[i] = nums[j];
         nums[j] = temp;
     }
+}
