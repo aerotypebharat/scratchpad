@@ -16,7 +16,7 @@ public class GraphTrackingPractice {
         System.out.println("Graph: " + adjList + "\n");
         
         // ========== CATEGORY 1: NODE TRACKING ONLY ==========
-        System.out.println("🟢 CATEGORY 1: NODE TRACKING ONLY");
+        System.out.println("CATEGORY 1: NODE TRACKING ONLY");
         System.out.println("=".repeat(50));
         
         // 1.1 Basic DFS
@@ -36,7 +36,7 @@ public class GraphTrackingPractice {
         detectCycleNodes(adjList);
         
         // ========== CATEGORY 2: EDGE TRACKING REQUIRED ==========
-        System.out.println("\n🟡 CATEGORY 2: EDGE TRACKING REQUIRED");
+        System.out.println("\n CATEGORY 2: EDGE TRACKING REQUIRED");
         System.out.println("=".repeat(50));
         
         // 2.1 DFS with Edge Tracking
@@ -52,7 +52,7 @@ public class GraphTrackingPractice {
         checkEulerian(adjList);
         
         // ========== CATEGORY 3: BOTH NODE & EDGE TRACKING ==========
-        System.out.println("\n🔴 CATEGORY 3: BOTH NODE & EDGE TRACKING");
+        System.out.println("\n CATEGORY 3: BOTH NODE & EDGE TRACKING");
         System.out.println("=".repeat(50));
         
         // 3.1 All Paths Between Nodes
